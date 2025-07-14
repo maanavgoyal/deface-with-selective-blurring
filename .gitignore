@@ -114,3 +114,4 @@ ENV/
 .vscode/
 
 deface/_version.py
+/my_env

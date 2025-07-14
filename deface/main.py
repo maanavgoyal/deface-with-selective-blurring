@@ -18,11 +18,7 @@ import imageio.v2 as iio
 from ultralytics import YOLO
 from PIL import Image
 
-# Deep learning models and configs
-from fastreid.config import get_cfg
-from fastreid.modeling.meta_arch import build_model
-from fastreid.utils.checkpoint import Checkpointer
-from reid.torchreid.utils import FeatureExtractor
+import torchreid
 
 # Local imports
 from deface import __version__
@@ -734,7 +730,7 @@ def main():
     print("Initializing models...")
     person_detector = YOLO('yolo11x.pt')
     # face_detector = YOLO('face_yolov9c.pt')
-    extractor = FeatureExtractor(
+    extractor = torchreid.utils.FeatureExtractor(
         model_name='osnet_x1_0',
         model_path='./models/osnet_ms_d_c.pth.tar',
         device='cuda' if torch.cuda.is_available() else 'cpu'

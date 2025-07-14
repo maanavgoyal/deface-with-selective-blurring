@@ -9,5 +9,11 @@ onnx
 onnxruntime-gpu
 shapely
 tf-keras
-tensorflow=2.14.0
+tensorflow
 tensorrt
+opencv-python
+torch
+ultralytics
+gdown
+cython
+torchreid
