@@ -1,0 +1,30 @@
+# Cog config for the Replicate model divide-by-0/deface-selective
+# Build context expects, alongside this file: the deface/ package, yolo11x.pt,
+# models/osnet_ms_d_c.pth.tar, deface/centerface.onnx, and predict.py.
+# See ../DEPLOYMENT_REPLICATE.md for the main.py import fixes that must be applied.
+build:
+  gpu: true
+  cuda: "11.8"
+  python_version: "3.10"
+  system_packages:
+    - ffmpeg
+    - libgl1-mesa-glx
+    - libglib2.0-0
+  python_packages:
+    - torch==2.0.1
+    - torchvision==0.15.2
+    - ultralytics==8.3.0
+    - onnxruntime-gpu==1.16.3
+    - opencv-contrib-python==4.10.0.84
+    - imageio==2.34.0
+    - imageio-ffmpeg==0.4.9
+    - scikit-image==0.22.0
+    - shapely
+    - scipy
+    - tqdm
+    - Pillow
+    - numpy==1.26.4
+    - gdown
+    - torchreid
+    - tensorboard
+predict: "predict.py:Predictor"
